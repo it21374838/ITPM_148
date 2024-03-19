@@ -5,6 +5,7 @@ var logger = require('morgan');
 const dbo = require('./src/config/db-connection');
 
 var indexRouter = require('./src/routes/index');
+
 var userRouter = require('./src/routes/User.route');
 
 var app = express();
@@ -15,6 +16,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
 app.use('/', indexRouter);
+
 app.use('/User',userRouter);
 
 

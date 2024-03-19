@@ -6,6 +6,7 @@ const dbo = require('./src/config/db-connection');
 
 var indexRouter = require('./src/routes/index');
 var moviesRouter = require('./src/routes/movies.route');
+var userRouter = require('./src/routes/User.route');
 
 var app = express();
 
@@ -16,6 +17,8 @@ app.use(cookieParser());
 
 app.use('/', indexRouter);
 app.use('/movies', moviesRouter);
+app.use('/User',userRouter);
+
 
 dbo.connectToServer(function (err) {
   if (err) {
@@ -24,5 +27,6 @@ dbo.connectToServer(function (err) {
   }
   console.log('Connected to the database');
 })
+
 
 module.exports = app;
